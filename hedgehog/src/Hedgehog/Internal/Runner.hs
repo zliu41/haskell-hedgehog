@@ -269,7 +269,7 @@ checkNamed ::
   -> Property
   -> m (Report Result)
 checkNamed region mcolor name prop = do
-  seed <- liftIO Seed.random
+  seed <- pure (Seed.from 42) -- liftIO Seed.random
   checkRegion region mcolor name 0 seed prop
 
 -- | Check a property.
